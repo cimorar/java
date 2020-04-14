@@ -1,0 +1,11 @@
+cz\racimora\MicroMarket.class
+cz\racimora\service\AbstractFacade.class
+cz\racimora\service\DiscountCodeFacadeREST.class
+cz\racimora\Customer_.class
+cz\racimora\DiscountCode.class
+cz\racimora\Customer.class
+cz\racimora\DiscountCode_.class
+cz\racimora\service\MicroMarketFacadeREST.class
+cz\racimora\MicroMarket_.class
+cz\racimora\service\CustomerFacadeREST.class
+cz\racimora\service\ApplicationConfig.class
