@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
         resources.add(cz.racimora.service.CustomerFacadeREST.class);
         resources.add(cz.racimora.service.DiscountCodeFacadeREST.class);
         resources.add(cz.racimora.service.MicroMarketFacadeREST.class);
+        resources.add(cz.racimora.service.service.CzuStudentFacadeREST.class);
     }
     
 }
