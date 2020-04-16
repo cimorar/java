@@ -6,6 +6,7 @@
 package cz.racimora.pizzaservice.service;
 
 import cz.racimora.pizzaservice.entities.Customer;
+import cz.racimora.pizzaservice.entities.Customers;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,6 +20,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+//import static javax.ws.rs.core.Response.Status.OK;
 
 /**
  *
@@ -39,6 +41,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Customer entity) {
+        System.out.println("CustomerFacadeREST:Create:" + entity);
         super.create(entity);
     }
 
@@ -68,6 +71,16 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public List<Customer> findAll() {
         return super.findAll();
     }
+    
+    @GET
+    @Path("findAllCustomers")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Customers findAllCustomers() {
+        Customers c = new Customers();
+        c.setCustomers(super.findAll());
+        return c;
+    }
+    
 
     @GET
     @Path("{from}/{to}")
@@ -81,6 +94,17 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
+    }
+    
+    @GET
+    @Path("init")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String addCustomer() {
+        Customer c = new Customer();
+        c.setName("Gabika");
+        c.setSurname("Cimoradska");
+        super.create(c);
+        return "Ok";
     }
 
     @Override

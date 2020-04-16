@@ -7,7 +7,9 @@ package cz.racimora.pizzaservice.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -56,7 +58,7 @@ public class Customer implements Serializable {
     private String surname;
     
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<PizzaOrder> myOrder;
 
     @XmlTransient
@@ -90,7 +92,9 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "cz.racimora.pizzaservice.entities.Customer[ id=" + id + " ]";
+        return "Customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", myOrder=" + myOrder + '}';
     }
+
+
     
 }

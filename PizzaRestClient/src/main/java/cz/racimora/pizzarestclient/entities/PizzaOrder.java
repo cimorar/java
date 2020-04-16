@@ -3,37 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.entities;
+package cz.racimora.pizzarestclient.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author radim
  */
-@Entity
 @XmlRootElement
 public class PizzaOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @OneToMany(mappedBy = "pizzaOrder",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Pizza> pizza;
+    private List<Pizza> pizza = new ArrayList();
 
-    @XmlTransient
+
     public List<Pizza> getPizza() {
         return pizza;
     }

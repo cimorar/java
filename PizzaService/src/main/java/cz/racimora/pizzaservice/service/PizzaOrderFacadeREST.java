@@ -41,6 +41,7 @@ public class PizzaOrderFacadeREST extends AbstractFacade<PizzaOrder> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(PizzaOrder entity) {
+        System.out.println("PizzaOrderFacadeREST: " + entity);
         super.create(entity);
     }
 
