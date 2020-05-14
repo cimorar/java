@@ -86,20 +86,22 @@ public class PizzaOrderFacadeREST extends AbstractFacade<PizzaOrder> {
         return String.valueOf(super.count());
     }
     
-    
+    // gacimora created
     @GET
     @Path("init")
     @Produces(MediaType.TEXT_PLAIN)
     public String initREST() {
-        Pizza entity = new Pizza();
-        entity.setName("Cheese_order");
-        entity.setPrice("129_order");
+        Pizza pizza = new Pizza();
+        pizza.setName("Cheese_order");
+        pizza.setPrice("129_order");
         
-        PizzaOrder order = new PizzaOrder();
-        List<Pizza> list = new ArrayList<>();
-        order.setOrderedPizzas(list);
-        order.getOrderedPizzas().add(entity);
-        super.create(order);
+        PizzaOrder pizzaOrder = new PizzaOrder();
+        List<Pizza> pizzaList = new ArrayList<>();
+        
+        pizzaList.add(pizza);
+        
+        pizzaOrder.setOrderedPizzas(pizzaList);        
+        super.create(pizzaOrder);
         return "Ok";
     }
     @Override

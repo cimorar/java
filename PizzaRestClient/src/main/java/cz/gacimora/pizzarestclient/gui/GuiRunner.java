@@ -466,7 +466,7 @@ public class GuiRunner extends javax.swing.JFrame {
             newCustomer.setMyOrders(new ArrayList<PizzaOrder>());
 
             // creating list of ordered pizzas
-            Pizza pizza = new Pizza(this.jTextField1_PizzaName.getText(), this.jTextField1_PizzaPrice.getText());
+            Pizza pizza = new Pizza(pizzaName, pizzaPrice);
             List<Pizza> orderedPizzas = new ArrayList<Pizza>();
             orderedPizzas.add(pizza);
 

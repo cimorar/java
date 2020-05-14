@@ -35,7 +35,7 @@ public class Main {
         p.setName("Pepperoni");
         p.setPrice("233");
 
-        // create PizzaOrder object and assign Pizza in it
+        // create PizzaOrder object and assign Pizza to it
         PizzaOrder po = new PizzaOrder();
         po.getOrderedPizzas().add(p);
 
@@ -46,7 +46,7 @@ public class Main {
         restClient.create_JSON(newCustomer);
 
         // edit existing customer
-        String customerId = "6";
+        String customerId = "7";
         try {
             Customer existingCustomer = restClient.find_JSON(Customer.class, customerId);
             existingCustomer.setSurname("Rajska");
@@ -56,9 +56,11 @@ public class Main {
             System.out.println("Error when editing customer with id = " + customerId);
         }
 
+        // display all customer again
         PrintAllCustomers(restClient);
     }
 
+    // created by gacimora
     private static void PrintAllCustomers(CustomerClient restClient) throws ClientErrorException {
         System.out.println("********** Start of customer list ************");
         Customers customers = restClient.findAllCustomers_XML(Customers.class);

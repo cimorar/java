@@ -72,6 +72,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         return super.findAll();
     }
     
+    // gacimora created
     @GET
     @Path("findAllCustomers")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

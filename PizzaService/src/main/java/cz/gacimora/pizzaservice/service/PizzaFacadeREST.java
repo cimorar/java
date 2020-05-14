@@ -84,13 +84,14 @@ public class PizzaFacadeREST extends AbstractFacade<Pizza> {
         return String.valueOf(super.count());
     }
 
+    // gacimora created
     @GET
     @Path("init")
     @Produces(MediaType.TEXT_PLAIN)
     public String initREST() {
         Pizza entity = new Pizza();
-        entity.setName("Cheese");
-        entity.setPrice("129");
+        entity.setName("Bolzano");
+        entity.setPrice("230");
         super.create(entity);
         return "Ok";
     }
