@@ -19,10 +19,15 @@ public class PizzaOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
-    
     private List<Pizza> orderedPizzas = new ArrayList();
-
-
+    private Customer customer;
+    
+    public PizzaOrder(){}
+    
+    public PizzaOrder(List<Pizza> orderedPizzas){
+        this.setOrderedPizzas(orderedPizzas);
+    }
+        
     public List<Pizza> getOrderedPizzas() {
         return orderedPizzas;
     }
@@ -38,10 +43,7 @@ public class PizzaOrder implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
-    private Customer customer;
-
+        
     public Customer getCustomer() {
         return customer;
     }
