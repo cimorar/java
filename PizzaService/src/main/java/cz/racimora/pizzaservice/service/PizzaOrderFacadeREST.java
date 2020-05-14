@@ -97,8 +97,8 @@ public class PizzaOrderFacadeREST extends AbstractFacade<PizzaOrder> {
         
         PizzaOrder order = new PizzaOrder();
         List<Pizza> list = new ArrayList<>();
-        order.setPizza(list);
-        order.getPizza().add(entity);
+        order.setOrderedPizzas(list);
+        order.getOrderedPizzas().add(entity);
         super.create(order);
         return "Ok";
     }

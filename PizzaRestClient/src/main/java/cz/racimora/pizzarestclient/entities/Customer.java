@@ -49,14 +49,14 @@ public class Customer implements Serializable {
     
     
 
-    private List<PizzaOrder> myOrder = new ArrayList();
+    private List<PizzaOrder> myOrders = new ArrayList();
 
-    public List<PizzaOrder> getMyOrder() {
-        return myOrder;
+    public List<PizzaOrder> getMyOrders() {
+        return myOrders;
     }
 
-    public void setMyOrder(List<PizzaOrder> myOrder) {
-        this.myOrder = myOrder;
+    public void setMyOrders(List<PizzaOrder> myOrders) {
+        this.myOrders = myOrders;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", myOrder=" + myOrder + '}';
+        return "Customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", myOrder=" + myOrders + '}';
     }
     
 }

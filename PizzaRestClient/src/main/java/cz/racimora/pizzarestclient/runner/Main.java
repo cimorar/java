@@ -22,37 +22,43 @@ public class Main {
     public static void main (String[] args) {
         CustomerClient restClient = new CustomerClient();
         System.out.println("Pocet klientu: " + restClient.countREST());
-        restClient.addCustomer();
-        System.out.println("Pocet klientu: " + restClient.countREST());
+//        restClient.addCustomer();
+//        System.out.println("Pocet klientu: " + restClient.countREST());
         
         printAllCustomers(restClient);
 
         // create a newCustomer object and initialize it
         Customer newCustomer  = new Customer();
-        newCustomer.setName("Marios");
-        newCustomer.setSurname("Lemieux2");        
+        newCustomer.setName("Jaromir");
+        newCustomer.setSurname("Jagr");        
         
         
         // create a new Pizza object and initiliaze it
         Pizza p = new Pizza();
-        p.setName("Funghi");
-        p.setPrice("110");
+        p.setName("Pepperoni");
+        p.setPrice("233");
         
         // create PizzaOrder object and assign Pizza in it
         PizzaOrder po = new PizzaOrder();        
-        po.getPizza().add(p);      
+        po.getOrderedPizzas().add(p);      
         
         // assign PizzaOrder to the newCustomer object
-        newCustomer.getMyOrder().add(po);
+        newCustomer.getMyOrders().add(po);
         
         // call REST API to create a new customer and all cascaded objects
         restClient.create_JSON(newCustomer);
         
         // edit existing customer
-        String customerId = "5";
-        Customer existingCustomer = restClient.find_JSON(Customer.class, customerId);
-        existingCustomer.setSurname("Rajska");
-        restClient.edit_JSON(existingCustomer, customerId);
+        String customerId = "6";
+        try {
+            Customer existingCustomer = restClient.find_JSON(Customer.class, customerId);
+            existingCustomer.setSurname("Rajska");
+            restClient.edit_JSON(existingCustomer, customerId);
+            System.out.println("Customer with id = " + customerId + " has been successfully edited." );
+        } catch (Exception e) {
+            System.out.println("Error when editing customer with id = " + customerId );
+        }
+        
         
         printAllCustomers(restClient);
     }

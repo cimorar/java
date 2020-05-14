@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -58,16 +59,16 @@ public class Customer implements Serializable {
     private String surname;
     
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<PizzaOrder> myOrder;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<PizzaOrder> myOrders;
 
     @XmlTransient
-    public List<PizzaOrder> getMyOrder() {
-        return myOrder;
+    public List<PizzaOrder> getMyOrders() {
+        return myOrders;
     }
 
-    public void setMyOrder(List<PizzaOrder> myOrder) {
-        this.myOrder = myOrder;
+    public void setMyOrders(List<PizzaOrder> myOrders) {
+        this.myOrders = myOrders;
     }
 
     @Override
@@ -92,7 +93,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", myOrder=" + myOrder + '}';
+        return "Customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", myOrder=" + myOrders + '}';
     }
 
 

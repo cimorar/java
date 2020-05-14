@@ -80,7 +80,6 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         c.setCustomers(super.findAll());
         return c;
     }
-    
 
     @GET
     @Path("{from}/{to}")
