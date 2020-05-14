@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.service;
+package cz.gacimora.pizzaservice.service;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 public abstract class AbstractFacade<T> {
 

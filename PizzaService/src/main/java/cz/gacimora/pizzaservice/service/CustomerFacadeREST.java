@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.service;
+package cz.gacimora.pizzaservice.service;
 
-import cz.racimora.pizzaservice.entities.Pizza;
+import cz.gacimora.pizzaservice.entities.Customer;
+import cz.gacimora.pizzaservice.entities.Customers;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,34 +20,35 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+//import static javax.ws.rs.core.Response.Status.OK;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 @Stateless
-@Path("cz.racimora.pizzaservice.entities.pizza")
-public class PizzaFacadeREST extends AbstractFacade<Pizza> {
+@Path("cz.gacimora.pizzaservice.entities.customer")
+public class CustomerFacadeREST extends AbstractFacade<Customer> {
 
-    @PersistenceContext(unitName = "cz.racimora_PizzaService_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "cz.gacimora_PizzaService_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
-    public PizzaFacadeREST() {
-        super(Pizza.class);
+    public CustomerFacadeREST() {
+        super(Customer.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Pizza entity) {
-        System.out.println("PizzaFacadeREST" + entity);
+    public void create(Customer entity) {
+        System.out.println("CustomerFacadeREST:Create:" + entity);
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Pizza entity) {
+    public void edit(@PathParam("id") Long id, Customer entity) {
         super.edit(entity);
     }
 
@@ -59,21 +61,30 @@ public class PizzaFacadeREST extends AbstractFacade<Pizza> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Pizza find(@PathParam("id") Long id) {
+    public Customer find(@PathParam("id") Long id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Pizza> findAll() {
+    public List<Customer> findAll() {
         return super.findAll();
+    }
+    
+    @GET
+    @Path("findAllCustomers")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Customers findAllCustomers() {
+        Customers c = new Customers();
+        c.setCustomers(super.findAll());
+        return c;
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Pizza> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
@@ -83,15 +94,15 @@ public class PizzaFacadeREST extends AbstractFacade<Pizza> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    
     @GET
     @Path("init")
     @Produces(MediaType.TEXT_PLAIN)
-    public String initREST() {
-        Pizza entity = new Pizza();
-        entity.setName("Cheese");
-        entity.setPrice("129");
-        super.create(entity);
+    public String addCustomer() {
+        Customer c = new Customer();
+        c.setName("Gabika");
+        c.setSurname("Cimoradska");
+        super.create(c);
         return "Ok";
     }
 
@@ -99,5 +110,5 @@ public class PizzaFacadeREST extends AbstractFacade<Pizza> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    
 }

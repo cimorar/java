@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzarestclient.entities;
+package cz.gacimora.pizzaservice.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 @XmlRootElement
 public class Customers {

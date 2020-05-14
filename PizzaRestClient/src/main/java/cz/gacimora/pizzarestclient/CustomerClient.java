@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzarestclient;
+package cz.gacimora.pizzarestclient;
 
 import javax.ws.rs.client.WebTarget;
 
 /**
  * Jersey REST client generated for REST resource:CustomerFacadeREST
- * [cz.racimora.pizzaservice.entities.customer]<br>
+ * [cz.gacimora.pizzaservice.entities.customer]<br>
  * USAGE:
  * <pre>
  *        CustomerClient client = new CustomerClient();
@@ -18,7 +18,7 @@ import javax.ws.rs.client.WebTarget;
  *        client.close();
  * </pre>
  *
- * @author radim
+ * @author gacimora
  */
 public class CustomerClient {
 
@@ -28,7 +28,7 @@ public class CustomerClient {
 
     public CustomerClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
-        webTarget = client.target(BASE_URI).path("cz.racimora.pizzaservice.entities.customer");
+        webTarget = client.target(BASE_URI).path("cz.gacimora.pizzaservice.entities.customer");
     }
 
     public String addCustomer() throws javax.ws.rs.ClientErrorException {

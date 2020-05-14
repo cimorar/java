@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzarestclient.gui;
+package cz.gacimora.pizzarestclient.gui;
 
-import cz.racimora.pizzarestclient.CustomerClient;
-import cz.racimora.pizzarestclient.entities.Customer;
-import cz.racimora.pizzarestclient.entities.Customers;
-import cz.racimora.pizzarestclient.entities.Pizza;
-import cz.racimora.pizzarestclient.entities.PizzaOrder;
+import cz.gacimora.pizzarestclient.CustomerClient;
+import cz.gacimora.pizzarestclient.entities.Customer;
+import cz.gacimora.pizzarestclient.entities.Customers;
+import cz.gacimora.pizzarestclient.entities.Pizza;
+import cz.gacimora.pizzarestclient.entities.PizzaOrder;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.ClientErrorException;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 public class GuiRunner extends javax.swing.JFrame {
 
@@ -65,7 +65,6 @@ public class GuiRunner extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 600));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("URL"));
 
@@ -441,10 +440,10 @@ public class GuiRunner extends javax.swing.JFrame {
         CustomerClient restClient = new CustomerClient();
         try {
             restClient.remove(this.jTextField1_QueryID.getText());
-            this.jTextArea1_output.setText("Customer record deleted successfully");
             ClearFormValues();
+            this.jTextArea1_output.setText("Customer record deleted successfully");            
         } catch (Exception e) {
-            this.jTextArea1_output.setText("Customer record update failed with exception: " + e.toString());
+            this.jTextArea1_output.setText("Deleting customer record failed with exception: " + e.toString());
         }
     }//GEN-LAST:event_DeleteRecordActionPerformed
 
@@ -455,7 +454,7 @@ public class GuiRunner extends javax.swing.JFrame {
         String firstName = this.jTextField1_FirstName.getText();
         String surname = this.jTextField1_Surname.getText();
         String pizzaName = this.jTextField1_PizzaName.getText();
-        String pizzaPrice = this.jTextField1_PizzaName.getText();
+        String pizzaPrice = this.jTextField1_PizzaPrice.getText();
 
         try {
             // creating customer
@@ -476,7 +475,7 @@ public class GuiRunner extends javax.swing.JFrame {
 
             restClient.create_JSON(newCustomer);
             ClearFormValues();
-            this.jTextArea1_output.setText("Customer created updated successfully");
+            this.jTextArea1_output.setText("Customer created successfully");
         } catch (Exception e) {
             this.jTextArea1_output.setText("Creating customer record failed with exception: " + e.toString());
         }

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.service;
+package cz.gacimora.pizzaservice.service;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
@@ -29,9 +29,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(cz.racimora.pizzaservice.service.CustomerFacadeREST.class);
-        resources.add(cz.racimora.pizzaservice.service.PizzaFacadeREST.class);
-        resources.add(cz.racimora.pizzaservice.service.PizzaOrderFacadeREST.class);
+        resources.add(cz.gacimora.pizzaservice.service.CustomerFacadeREST.class);
+        resources.add(cz.gacimora.pizzaservice.service.PizzaFacadeREST.class);
+        resources.add(cz.gacimora.pizzaservice.service.PizzaOrderFacadeREST.class);
     }
     
 }

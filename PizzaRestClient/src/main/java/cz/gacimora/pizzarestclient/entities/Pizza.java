@@ -3,32 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.entities;
+package cz.gacimora.pizzarestclient.entities;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  *
- * @author radim
+ * @author gacimora
  */
-@Entity
 @XmlRootElement
 public class Pizza implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    public Pizza(){}
+    
+    public Pizza(String name, String price){
+        this.name = name;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;
@@ -57,8 +51,6 @@ public class Pizza implements Serializable {
         this.price = price;
     }
     
-    @ManyToOne
-    @JoinColumn(name = "pizzaorder_id")
     private PizzaOrder pizzaOrder;
 
     public PizzaOrder getPizzaOrder() {
@@ -93,4 +85,6 @@ public class Pizza implements Serializable {
     public String toString() {
         return "Pizza{" + "id=" + id + ", name=" + name + ", price=" + price + ", pizzaOrder=" + pizzaOrder + '}';
     }
+
+
 }

@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzarestclient.runner;
+package cz.gacimora.pizzarestclient.runner;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-import cz.racimora.pizzarestclient.CustomerClient;
-import cz.racimora.pizzarestclient.entities.Customer;
-import cz.racimora.pizzarestclient.entities.Customers;
-import cz.racimora.pizzarestclient.entities.Pizza;
-import cz.racimora.pizzarestclient.entities.PizzaOrder;
+import cz.gacimora.pizzarestclient.CustomerClient;
+import cz.gacimora.pizzarestclient.entities.Customer;
+import cz.gacimora.pizzarestclient.entities.Customers;
+import cz.gacimora.pizzarestclient.entities.Pizza;
+import cz.gacimora.pizzarestclient.entities.PizzaOrder;
 import java.util.ArrayList;
 import javax.ws.rs.ClientErrorException;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 public class Main {
 

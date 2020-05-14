@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.racimora.pizzaservice.service;
+package cz.gacimora.pizzaservice.service;
 
-import cz.racimora.pizzaservice.entities.Pizza;
-import cz.racimora.pizzaservice.entities.PizzaOrder;
+import cz.gacimora.pizzaservice.entities.Pizza;
+import cz.gacimora.pizzaservice.entities.PizzaOrder;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -24,13 +24,13 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author radim
+ * @author gacimora
  */
 @Stateless
-@Path("cz.racimora.pizzaservice.entities.pizzaorder")
+@Path("cz.gacimora.pizzaservice.entities.pizzaorder")
 public class PizzaOrderFacadeREST extends AbstractFacade<PizzaOrder> {
 
-    @PersistenceContext(unitName = "cz.racimora_PizzaService_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "cz.gacimora_PizzaService_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
     public PizzaOrderFacadeREST() {
